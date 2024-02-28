@@ -9,7 +9,7 @@ class Sort {
         Nodo* merge(Nodo* lista1, Nodo* lista2) const;
 
         //quick sort
-        Nodo* unionListas(Nodo* listaMenor, Nodo* pivote, Nodo* listaMayor);
+        Nodo* unirListas(Nodo* listaMenor, Nodo* pivote, Nodo* listaMayor);
 
         //bubble
 
