@@ -1,0 +1,12 @@
+Hola!!
+
+Las configuraciones de compilación y ejecución se pueden encontrar en los archivos tasks.json y launch.json respectivamente
+(ambos en el directorio .vscode)
+
+Para cambiar el número de parámetros (personas a generar) modificar atributo "args" en tasks.json
+
+Compilar: 
+ctrl + Lshift + B
+
+Debuggear: 
+f5
