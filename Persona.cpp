@@ -22,7 +22,7 @@ bool Persona::operator<(const Persona& otra) const {
     if (nombre == otra.nombre) {
         return edad < otra.edad;
     }
-    return nombre < otra.nombre;
+    return edad < otra.edad;
 }
 
 bool Persona::operator<=(const Persona& otra) const {

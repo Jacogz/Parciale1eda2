@@ -26,9 +26,9 @@ void Sort::mergeSort(Lista* lista){
     if(lista->cabeza == nullptr || lista->cabeza->siguiente == nullptr){
         return;
     }
-    
-    Lista* mitad1;
-    Lista* mitad2;
+
+    Lista* mitad1 = new Lista();
+    Lista* mitad2 = new Lista();
 
     lista->bisecar(&mitad1, &mitad2);
 

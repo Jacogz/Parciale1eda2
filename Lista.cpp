@@ -25,7 +25,7 @@ void Lista::listar() const {
     Nodo* actual = cabeza;
     int i=1;
     while (actual != nullptr) {
-        std::cout << "["<< std::to_string(i) <<"]::"<< actual->data << " -> "<< actual->siguiente->data << " : "<< actual->data << " " << std::endl;
+        std::cout << "["<< std::to_string(i) <<"]::"<< actual << " -> "<< actual->siguiente << " : "<< actual->data << " " << std::endl;
         actual = actual->siguiente;
         ++i;
     }
