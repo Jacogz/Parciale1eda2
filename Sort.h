@@ -8,14 +8,16 @@ class Sort {
         //merge sort
         Nodo* merge(Nodo* lista1, Nodo* lista2) const;
 
-
         //quick sort
-
+        Nodo* unionListas(Nodo* listaMenor, Nodo* pivote, Nodo* listaMayor);
 
         //bubble
+
+
     public:
         void mergeSort(Lista* lista);
-        
+        Nodo* quickSort(Nodo* cabeza);
+        void bubbleSort(Lista* lista);
 };
 
 #endif
