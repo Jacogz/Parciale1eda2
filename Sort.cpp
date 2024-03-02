@@ -64,13 +64,13 @@ void Sort::quickSort(Lista* lista){
         actual = siguiente;
     }
 
-    std::cout << "Split" << std::endl;
+    /*std::cout << "Split" << std::endl;
 
     std::cout << "Lista mayor" << std::endl;
     listaMayor->listar();
     std::cout << std::endl;
     std::cout << "Lista menor" << std::endl;
-    listaMenor->listar();
+    listaMenor->listar();*/
 
     quickSort(listaMenor);
     quickSort(listaMayor);
@@ -95,4 +95,35 @@ void Sort::unirListas(Lista* listaMenor, Nodo* pivote, Lista* listaMayor) {
         colaMenor->siguiente = pivote;
     }
     pivote->siguiente = listaMayor->cabeza;
+}
+
+void Sort::bubbleSort(Lista* lista){
+
+    int intercambio;
+
+    Nodo* actual;
+    Nodo* anterior = nullptr;
+
+    if(lista->cabeza == nullptr){
+        return;
+    }
+
+    do
+    {
+        intercambio = 0;
+        actual = lista->cabeza;
+
+        while(actual->siguiente != anterior){
+            if(actual->data < actual->siguiente->data){
+                Nodo* temp = actual->siguiente;
+                anterior->siguiente = actual->siguiente;
+                temp->siguiente = actual;
+                actual->siguiente = temp->siguiente->siguiente;
+                intercambio = 1;
+            }
+            actual = actual->siguiente;
+        }
+        anterior = actual;
+    } while (intercambio);
+    
 }

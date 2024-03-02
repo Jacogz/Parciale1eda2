@@ -12,7 +12,7 @@ class Sort {
         void unirListas(Lista* listaMenor, Nodo* pivote, Lista* listaMayor);
 
         //bubble
-
+        void intercambiar(Nodo* nodoA, Nodo* nodoB);
 
     public:
         void mergeSort(Lista* lista);

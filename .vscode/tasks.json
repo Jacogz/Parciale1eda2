@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "test_mergeSort.cpp",
+                "test.cpp",
                 "Persona.cpp",
                 "Lista.cpp",
                 "Sort.cpp",
