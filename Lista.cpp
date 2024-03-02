@@ -15,10 +15,9 @@ Nodo* Lista::getCabeza() const{
     return cabeza;
 };
 
-void Lista::agregar(const Persona& persona) {
-    Nodo* nuevoNodo = new Nodo(persona);
-    nuevoNodo->siguiente = cabeza;
-    cabeza = nuevoNodo;
+void Lista::agregar(Nodo* nodo) {
+    nodo->siguiente = cabeza;
+    cabeza = nodo;
 }
 
 void Lista::listar() const {

@@ -39,68 +39,60 @@ void Sort::mergeSort(Lista* lista){
     lista->cabeza = merge(mitad1->getCabeza(), mitad2->getCabeza());
 }
 
-Nodo* Sort::quickSort(Nodo* cabeza){
+void Sort::quickSort(Lista* lista){
     // Caso base
-    if (cabeza == nullptr || cabeza->siguiente == nullptr) {
-        return cabeza;
+    if (lista->cabeza == nullptr || lista->cabeza->siguiente == nullptr) {
+        return;
     }
 
-    Nodo* cabezaMayor = nullptr; 
-    Nodo* cabezaMenor = nullptr;
-    Nodo* pivote = cabeza; 
+    Lista* listaMayor = new Lista(); 
+    Lista* listaMenor = new Lista();
+
+    Nodo* cabeza = lista->cabeza;
+    Nodo* pivote = cabeza;
     Nodo* actual = cabeza->siguiente; 
 
-    
-    while (actual != nullptr){
+    while(actual != nullptr){
 
         Nodo* siguiente = actual->siguiente;
-        
 
-        
-        if (actual->data < pivote->data){
-            actual->siguiente = cabezaMenor; 
-            cabezaMenor = actual; 
+        if(actual->data < pivote->data){
+            listaMenor->agregar(actual);
+        }else{
+            listaMayor->agregar(actual);
         }
-        
-        else{
-            actual->siguiente = cabezaMayor;
-            cabezaMayor = actual;
-        }
-        
         actual = siguiente;
     }
 
-    
-    cabezaMenor = quickSort(cabezaMenor);
-    cabezaMayor = quickSort(cabezaMayor);
+    std::cout << "Split" << std::endl;
+
+    std::cout << "Lista mayor" << std::endl;
+    listaMayor->listar();
+    std::cout << std::endl;
+    std::cout << "Lista menor" << std::endl;
+    listaMenor->listar();
+
+    quickSort(listaMenor);
+    quickSort(listaMayor);
 
     // Se debe ligar el final de los menores con el pivote y este a su vez se debe ligar con la cabeza de mayores
-    return unirListas(cabezaMenor, pivote, cabezaMayor);
+    unirListas(listaMenor, pivote, listaMayor);
+    lista->cabeza = listaMenor->cabeza != nullptr? listaMenor->cabeza : pivote;
+
+    //listaMayor->~Lista();
+    //listaMenor->~Lista();
+}
 
 
-    Nodo* sort::unirListas(Nodo* cabezaMenor, Nodo* pivote, Nodo* cabezaMayor) {
-    // Encontrar el último nodo de la lista menor
-    Nodo* actual = cabezaMenor;
-    while (actual->siguiente != nullptr) {
-        actual = actual->siguiente;  
+void Sort::unirListas(Lista* listaMenor, Nodo* pivote, Lista* listaMayor) {
 
-        if (actual != nullptr) {
-        actual->siguiente = pivote;
-        } else {
-        // Si no hay nodos en la lista menor, el pivote se convierte en la nueva cabeza
-        cabezaMenor = pivote;
+    Nodo* colaMenor = listaMenor->cabeza;
+
+    if(colaMenor != nullptr){
+        while(colaMenor->siguiente != nullptr){
+            colaMenor = colaMenor->siguiente;
         }
-        actual = pivote;
-        while (actual != nullptr && actual->siguiente != nullptr) {
-        actual = actual->siguiente;
-        }
-        if (actual != nullptr) {
-        actual->siguiente = cabezaMayor;
-        }
-        return cabezaMenor;
-
+        colaMenor->siguiente = pivote;
     }
-    
-
-
+    pivote->siguiente = listaMayor->cabeza;
 }

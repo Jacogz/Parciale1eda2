@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "Persona.h"
 #include "Lista.h"
 #include "Sort.h"
@@ -25,20 +26,23 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < numElementos; ++i) {
         Persona personaGenerada = generadorNombres.generarPersona();
-        lista.agregar(personaGenerada);
+        Nodo* nuevoNodo = new Nodo(personaGenerada);
+        lista.agregar(nuevoNodo);
     }
-
     // Mostrar la lista desordenada
     std::cout << "Lista de personas generadas aleatoriamente (desordenada):" << std::endl;
     lista.listar();
     std::cout << std::endl;
 
     // Ordenar la lista con MergeSort
-    sort.mergeSort(&lista);
+    sort.quickSort(&lista);
 
     // Mostrar la lista ordenada
     std::cout << "Lista ordenada por MergeSort:" << std::endl;
     lista.listar();
+
+    std::cout << "presiona ENTER para salir...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 
     return 0;
 }
