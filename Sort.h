@@ -9,14 +9,14 @@ class Sort {
         Nodo* merge(Nodo* lista1, Nodo* lista2) const;
 
         //quick sort
-        Nodo* unirListas(Nodo* listaMenor, Nodo* pivote, Nodo* listaMayor);
+        void unirListas(Lista* listaMenor, Nodo* pivote, Lista* listaMayor);
 
         //bubble
-
+        void intercambiar(Nodo* nodoA, Nodo* nodoB);
 
     public:
         void mergeSort(Lista* lista);
-        Nodo* quickSort(Nodo* cabeza);
+        void quickSort(Lista* lista);
         void bubbleSort(Lista* lista);
 };
 

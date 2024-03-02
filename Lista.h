@@ -11,7 +11,7 @@ class Lista {
         ~Lista();
         
         Nodo* getCabeza() const;
-        void agregar(const Persona& persona);
+        void agregar(Nodo* nodo);
         void listar() const;
 
         Nodo* encontrarMitad() const;
