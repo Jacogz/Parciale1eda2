@@ -64,23 +64,12 @@ void Sort::quickSort(Lista* lista){
         actual = siguiente;
     }
 
-    /*std::cout << "Split" << std::endl;
-
-    std::cout << "Lista mayor" << std::endl;
-    listaMayor->listar();
-    std::cout << std::endl;
-    std::cout << "Lista menor" << std::endl;
-    listaMenor->listar();*/
-
     quickSort(listaMenor);
     quickSort(listaMayor);
 
     // Se debe ligar el final de los menores con el pivote y este a su vez se debe ligar con la cabeza de mayores
     unirListas(listaMenor, pivote, listaMayor);
     lista->cabeza = listaMenor->cabeza != nullptr? listaMenor->cabeza : pivote;
-
-    //listaMayor->~Lista();
-    //listaMenor->~Lista();
 }
 
 

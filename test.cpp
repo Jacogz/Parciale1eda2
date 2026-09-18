@@ -55,6 +55,7 @@ int main(int argc, char* argv[]) {
     std::chrono::duration<double> elapsed_bubble = end - start;*/
 
     // Mostrar la lista ordenada
+    lista.listar();
     std::cout << "Tiempos de ordenamiento" << std::endl;
     std::cout << "Merge sort : ";
     std::cout << elapsed_merge.count() << std::endl;
